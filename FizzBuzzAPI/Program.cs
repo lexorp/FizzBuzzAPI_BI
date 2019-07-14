@@ -14,6 +14,7 @@ namespace FizzBuzzAPI
     {
         public static void Main(string[] args)
         {
+            // Testing a little bit.
             CreateWebHostBuilder(args).Build().Run();
         }
 
