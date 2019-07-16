@@ -24,7 +24,7 @@ namespace FizzBuzzAPI.Models
             var configuration = builder.Build();
 
             this.StartValueConfigValue = randomNumber;
-            this.EndValueConfigValue = Int32.Parse(configuration["FizzBuzz:MaxValue"]);
+            this.EndValueConfigValue = Int32.Parse(configuration["FizzBuzz:EndValue"]);
             this.MultipleAConfigValue = Int32.Parse(configuration["FizzBuzz:MultipleA"]);
             this.MultipleBConfigValue = Int32.Parse(configuration["FizzBuzz:MultipleB"]);
         }

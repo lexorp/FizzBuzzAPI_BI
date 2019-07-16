@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace FizzBuzzAPI.Controllers
 {
@@ -21,15 +19,16 @@ namespace FizzBuzzAPI.Controllers
             var configuration = builder.Build();
 
             return new string[] { "Prueba valores desde appsettings.json",
-                configuration["FizzBuzz:MultipleB"] };
+                configuration["OutputDirectory"] };
         
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{seconds}")]
+        public ActionResult<string> Get(int seconds)
         {
-            return "value " + id;
+            Thread.Sleep(seconds*1000);
+            return "Dormido " + seconds + " segundos.";
         }
 
         // POST api/values

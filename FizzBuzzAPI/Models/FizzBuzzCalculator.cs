@@ -1,8 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FizzBuzzAPI.Models
 {
@@ -18,21 +15,24 @@ namespace FizzBuzzAPI.Models
         public List<string> MakeFizzBuzzSerie()
         {
             List<String> FizzBuzzSerie = new List<string>();
-            for (int i=SerieParameters.StartValue; i < SerieParameters.EndValue; i++)
+            for (int i = SerieParameters.StartValue; i < SerieParameters.EndValue; i++)
             {
-                if (SerieParameters.MultipleA % i == 0)
+                if (i % SerieParameters.MultipleA == 0)
                 {
-                    if (SerieParameters.MultipleB % i == 0)
+                    if (i %  SerieParameters.MultipleB == 0)
                     {
-                        FizzBuzzSerie.Add("Fizz-Buzz");
-                    } else
+                        FizzBuzzSerie.Add("FizzBuzz");
+                    }
+                    else
                     {
                         FizzBuzzSerie.Add("Fizz");
                     }
-                } else if (SerieParameters.MultipleB % i == 0)
+                }
+                else if (i % SerieParameters.MultipleB == 0)
                 {
                     FizzBuzzSerie.Add("Buzz");
-                } else
+                }
+                else
                 {
                     FizzBuzzSerie.Add(i.ToString());
                 }
