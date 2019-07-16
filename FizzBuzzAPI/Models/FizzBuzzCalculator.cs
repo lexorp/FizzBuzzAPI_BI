@@ -12,7 +12,7 @@ namespace FizzBuzzAPI.Models
         {
         }
 
-        public Serie serie { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public SerieParameters serie { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public List<string> MakeFizzBuzzSerie(int MultipleA, int MultipleB, int StartValue, int EndValue)
         {

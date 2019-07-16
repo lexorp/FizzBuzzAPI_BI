@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace FizzBuzzAPI.Models
 {
-    interface ISerie
+    interface ISerieParameters
     {
+        ConfigurationLoader configurationLoader { get; }
         int MultipleA { get; set; }
         int MultipleB { get; set; }
         int StartValue { get; set; }
