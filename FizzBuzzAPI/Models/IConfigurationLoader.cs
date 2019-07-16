@@ -7,10 +7,10 @@ namespace FizzBuzzAPI.Models
 {
     interface IConfigurationLoader
     {
-        int MultipleA { get; set; }
-        int MultipleB { get; set; }
-        int StartValue { get; set; }
-        int EndValue { get; set; }
+        int MultipleAConfigValue { get; set; }
+        int MultipleBConfigValue { get; set; }
+        int StartValueConfigValue { get; set; }
+        int EndValueConfigValue { get; set; }
         void loader(int startValue);
     }
 }

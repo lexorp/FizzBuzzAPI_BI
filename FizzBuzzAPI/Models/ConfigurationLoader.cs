@@ -8,21 +8,25 @@ namespace FizzBuzzAPI.Models
 {
     public class ConfigurationLoader : IConfigurationLoader
     {
-        public int MultipleA { get; set; }
-        public int MultipleB { get; set; }
-        public int StartValue { get; set; }
-        public int EndValue { get; set; }
+        public ConfigurationLoader(int randomNumber)
+        {
+            loader(randomNumber);
+        }
+        public int MultipleAConfigValue { get; set; }
+        public int MultipleBConfigValue { get; set; }
+        public int StartValueConfigValue { get; set; }
+        public int EndValueConfigValue { get; set; }
 
-        public void loader(int startValue)
+        public void loader(int randomNumber)
         {
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             var configuration = builder.Build();
 
-            this.StartValue = startValue;
-            this.EndValue = Int32.Parse(configuration["FizzBuzz:MaxValue"]);
-            this.MultipleA = Int32.Parse(configuration["FizzBuzz:MultipleA"]);
-            this.MultipleB = Int32.Parse(configuration["FizzBuzz:MultipleB"]);
+            this.StartValueConfigValue = randomNumber;
+            this.EndValueConfigValue = Int32.Parse(configuration["FizzBuzz:MaxValue"]);
+            this.MultipleAConfigValue = Int32.Parse(configuration["FizzBuzz:MultipleA"]);
+            this.MultipleBConfigValue = Int32.Parse(configuration["FizzBuzz:MultipleB"]);
         }
     }
 }

@@ -17,11 +17,11 @@ namespace FizzBuzzAPI.Controllers
         [HttpGet("{randomNumber}", Name = "BuildFizzBuzzList")]
         public async Task<List<string>> BuildFizzBuzzList(int randomNumber)
         {
-            // Se obtiene la lista FizzBuzz pasando un número aleatorio.
-            FizzBuzzCalculator fizzBuzzCalculator = 
-            // Se almacena la lista en el fichero.
+            FizzBuzzCalculator fizzBuzzCalculator = new FizzBuzzCalculator(randomNumber);
+            List<string> filledSerie = fizzBuzzCalculator.MakeFizzBuzzSerie();
+            // Faltaría escribir en fichero asyncronamente todo.
 
-            return new List<string>();
+            return filledSerie;
         }
     }
 }

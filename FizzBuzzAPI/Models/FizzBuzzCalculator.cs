@@ -8,27 +8,28 @@ namespace FizzBuzzAPI.Models
 {
     public class FizzBuzzCalculator : IFizzBuzzCalculator
     {
-        public FizzBuzzCalculator(int StartValue)
+        public FizzBuzzCalculator(int RandomNumber)
         {
+            this.SerieParameters = new SerieParameters(RandomNumber);
         }
 
-        public SerieParameters serie { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public SerieParameters SerieParameters { get; set; }
 
-        public List<string> MakeFizzBuzzSerie(int MultipleA, int MultipleB, int StartValue, int EndValue)
+        public List<string> MakeFizzBuzzSerie()
         {
             List<String> FizzBuzzSerie = new List<string>();
-            for (int i=StartValue; i < EndValue; i++)
+            for (int i=SerieParameters.StartValue; i < SerieParameters.EndValue; i++)
             {
-                if (MultipleA % i == 0)
+                if (SerieParameters.MultipleA % i == 0)
                 {
-                    if (MultipleB % i == 0)
+                    if (SerieParameters.MultipleB % i == 0)
                     {
                         FizzBuzzSerie.Add("Fizz-Buzz");
                     } else
                     {
                         FizzBuzzSerie.Add("Fizz");
                     }
-                } else if (MultipleB % i == 0)
+                } else if (SerieParameters.MultipleB % i == 0)
                 {
                     FizzBuzzSerie.Add("Buzz");
                 } else

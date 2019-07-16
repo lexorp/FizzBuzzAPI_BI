@@ -7,7 +7,7 @@ namespace FizzBuzzAPI.Models
 {
     interface ISerieParameters
     {
-        ConfigurationLoader configurationLoader { get; }
+        ConfigurationLoader ConfigurationLoader { get; set; }
         int MultipleA { get; set; }
         int MultipleB { get; set; }
         int StartValue { get; set; }
