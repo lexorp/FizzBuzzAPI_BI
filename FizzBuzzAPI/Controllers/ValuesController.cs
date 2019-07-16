@@ -20,7 +20,9 @@ namespace FizzBuzzAPI.Controllers
 
             var configuration = builder.Build();
 
-            return new string[] { "value1", "value2", configuration["TestValue"]};
+            return new string[] { "Prueba valores desde appsettings.json",
+                configuration["FizzBuzz:MultipleB"] };
+        
         }
 
         // GET api/values/5
