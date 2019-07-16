@@ -7,10 +7,7 @@ namespace FizzBuzzAPI.Models
 {
     interface IFizzBuzzCalculator
     {
-        int MultipleA { get; set; }
-        int MultipleB { get; set; }
-        int StartValue { get; set; }
-        int EndValue { get; set; }
-        List<string> MakeFizzBuzzSerie();
+        Serie serie { get; set; }
+        List<string> MakeFizzBuzzSerie(int MultipleA, int MultipleB, int StartValue, int EndValue);
     }
 }
