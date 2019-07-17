@@ -1,9 +1,8 @@
 ﻿using FizzBuzzAPI.Models;
+using FizzBuzzAPI.Tools;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using FizzBuzzAPI.Tools;
 
 namespace FizzBuzzAPI.Controllers
 {
