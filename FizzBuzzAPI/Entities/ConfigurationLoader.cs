@@ -34,7 +34,7 @@ namespace FizzBuzzAPI.Entities
             this.MultipleAConfigValue = Int32.Parse(configuration["FizzBuzz:MultipleA"]);
             this.MultipleBConfigValue = Int32.Parse(configuration["FizzBuzz:MultipleB"]);
 
-            if ((StartValueConfigValue < 0) || (StartValueConfigValue > EndValueConfigValue))
+            if ((StartValueConfigValue < 0) || (StartValueConfigValue >= EndValueConfigValue))
                 throw new Exception("Valor de inicio de la serie fuera de rango.");
             if ((EndValueConfigValue > 100) || (EndValueConfigValue < 0))
                 throw new Exception("Valor final de la serie fuera de rango.");
