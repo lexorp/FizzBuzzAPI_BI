@@ -1,8 +1,7 @@
-﻿using FizzBuzzAPI.Entities;
+﻿using FizzBuzzAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace FizzBuzzAPI.Controllers
 {
@@ -10,19 +9,19 @@ namespace FizzBuzzAPI.Controllers
     [ApiController]
     public class FizzBuzzController : ControllerBase
     {
-        // Obtiene una lista con una serie FizzBuzz y la escribe en un fichero de manera asíncrona.
-        [HttpGet("{randomNumber}", Name = "BuildFizzBuzzSerie")]
-        public List<string> BuildFizzBuzzSerie(int randomNumber)
+        // Obtiene una lista FizzBuzz y la escribe en un ficheor 
+        [HttpGet("{randomNumber}", Name = "GetFizzBuzzSerie")]
+        public ActionResult<List<string>> GetFizzBuzzSerie(int RandomNumber)
         {
-            // Obtiene la lista de la calculadora de FizzBuzz.
-            FizzBuzzCalculator fizzBuzzCalculator = new FizzBuzzCalculator(randomNumber);
-            List<string> filledSerie = fizzBuzzCalculator.MakeFizzBuzzSerie();
-
-            // Guarda la serie generada en un .txt.
-            Writer Writer = new Writer();
-            new Thread(Writer.SeriesWriter(filledSerie).Start);
-
-            return filledSerie;
+            try
+            {
+                return Ok(new FizzBuzzModel().ProcessFizzBuzz(RandomNumber));
+            } catch (Exception ex)
+            {
+                // LOGGIN
+                return this.BadRequest(ex.Message);
+            }
+            
         }
     }
 }

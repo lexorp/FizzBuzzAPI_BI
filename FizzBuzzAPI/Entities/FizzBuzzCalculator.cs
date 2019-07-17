@@ -7,7 +7,13 @@ namespace FizzBuzzAPI.Entities
     {
         public FizzBuzzCalculator(int RandomNumber)
         {
-            this.SerieParameters = new SerieParameters(RandomNumber);
+            try
+            {
+                this.SerieParameters = new SerieParameters(RandomNumber);
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public SerieParameters SerieParameters { get; set; }

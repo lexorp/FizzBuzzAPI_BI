@@ -14,7 +14,6 @@
   <ItemGroup>
     <Folder Include="Logs\" />
     <Folder Include="FizzBuzzSerie\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,12 +14,22 @@ namespace FizzBuzzAPI.Entities
     {
         public Writer()
         {
-            LoadPathData();
+            try
+            {
+                LoadPathData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+                
         }
         public string Path { get; set; }
 
         public Task SeriesWriter(List<string> FilledSerie)
         {
+            if (FilledSerie == null || FilledSerie.Count == 0)
+                throw new Exception("Contenido de salida vacío.");
             return Task.Run(() =>
             {
                 string fileName = DateTime.Now.ToString("dd-MM-yyyy-HH-mm") + ".txt";
@@ -25,7 +37,6 @@ namespace FizzBuzzAPI.Entities
                 {
                     using (StreamWriter writer = new StreamWriter(stream, Encoding.UTF8))
                     {
-                        Thread.Sleep(100);
                         for (int i = 0; i < FilledSerie.Count; i++)
                         {
                             writer.Write(FilledSerie[i]);
@@ -45,7 +56,10 @@ namespace FizzBuzzAPI.Entities
             var configuration = builder.Build();
 
             this.Path = configuration["Output:Path"];
+            if (!Directory.Exists(this.Path))
+            {
+                throw new Exception("Directorio de salida erroneo.");
+            }
         }
-
     }
 }

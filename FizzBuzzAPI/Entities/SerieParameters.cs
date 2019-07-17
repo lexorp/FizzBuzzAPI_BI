@@ -9,7 +9,13 @@ namespace FizzBuzzAPI.Entities
     {
         public SerieParameters(int randomNumber)
         {
-            this.ConfigurationLoader = new ConfigurationLoader(randomNumber);
+            try
+            {
+                this.ConfigurationLoader = new ConfigurationLoader(randomNumber);
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
             loadValues(ConfigurationLoader);
         }
 
