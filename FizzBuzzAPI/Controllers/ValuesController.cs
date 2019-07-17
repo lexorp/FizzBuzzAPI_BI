@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using System.Threading;
+using System;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FizzBuzzAPI.Controllers
 {
@@ -11,42 +13,30 @@ namespace FizzBuzzAPI.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<ActionResult<string>> Get()
         {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-            var configuration = builder.Build();
 
-            return new string[] { "Prueba valores desde appsettings.json",
-                configuration["OutputDirectory"] };
-        
+            return new ActionResult<string>("");
         }
 
         // GET api/values/5
-        [HttpGet("{seconds}")]
-        public ActionResult<string> Get(int seconds)
+        [HttpGet("{iterations}")]
+        public async Task<ActionResult<string>> Get(int iterations)
         {
-            Thread.Sleep(seconds*1000);
-            return "Dormido " + seconds + " segundos.";
-        }
+            var builder = new ConfigurationBuilder()
+              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            var configuration = builder.Build();
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+            #region Test escritura .txt asincrónica.
+            string filePath = Path.Combine(configuration["Output:Path"], configuration["Output:FileName"]);
+            await Task.Run(() =>
+            {
+                
+            });
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return "Proceso largo terminado";
+            #endregion
         }
     }
 }

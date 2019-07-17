@@ -1,4 +1,4 @@
-﻿namespace FizzBuzzAPI.Models
+﻿namespace FizzBuzzAPI.Entities
 {
     interface IConfigurationLoader
     {

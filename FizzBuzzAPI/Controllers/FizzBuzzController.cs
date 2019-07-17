@@ -1,6 +1,7 @@
-﻿using FizzBuzzAPI.Models;
+﻿using FizzBuzzAPI.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FizzBuzzAPI.Controllers
@@ -11,14 +12,15 @@ namespace FizzBuzzAPI.Controllers
     {
         // Obtiene una lista con una serie FizzBuzz y la escribe en un fichero de manera asíncrona.
         [HttpGet("{randomNumber}", Name = "BuildFizzBuzzSerie")]
-        public async Task<List<string>> BuildFizzBuzzSerie(int randomNumber)
+        public List<string> BuildFizzBuzzSerie(int randomNumber)
         {
             // Obtiene la lista de la calculadora de FizzBuzz.
             FizzBuzzCalculator fizzBuzzCalculator = new FizzBuzzCalculator(randomNumber);
             List<string> filledSerie = fizzBuzzCalculator.MakeFizzBuzzSerie();
 
-            // Guarda de manera asíncrona la serie generada en un .txt.
-            await new Writer().SeriesWriter(filledSerie);
+            // Guarda la serie generada en un .txt.
+            Writer Writer = new Writer();
+            new Thread(Writer.SeriesWriter(filledSerie).Start);
 
             return filledSerie;
         }

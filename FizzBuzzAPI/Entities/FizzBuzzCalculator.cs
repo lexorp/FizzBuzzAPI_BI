@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FizzBuzzAPI.Models
+namespace FizzBuzzAPI.Entities
 {
     public class FizzBuzzCalculator : IFizzBuzzCalculator
     {
