@@ -1,7 +1,9 @@
 ﻿using FizzBuzzAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using FizzBuzzAPI.Tools;
 
 namespace FizzBuzzAPI.Controllers
 {
@@ -15,10 +17,11 @@ namespace FizzBuzzAPI.Controllers
         {
             try
             {
+                Logger.Log(Logger.LogType.DEBUG, "FizzBuzzController()", "Texto de prueba entrando en el método.");
                 return Ok(new FizzBuzzModel().ProcessFizzBuzz(RandomNumber));
             } catch (Exception ex)
             {
-                // LOGGIN
+                Logger.Log(Logger.LogType.ERROR, "FizzBuzzController()", ex.Message);
                 return this.BadRequest(ex.Message);
             }
             

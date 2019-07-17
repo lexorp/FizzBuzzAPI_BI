@@ -1,0 +1,5 @@
+﻿["DEBUG" "18-07-2019-12:32:30" "FizzBuzzController()"] "Texto de prueba entrando en el método."
+["ERROR" "18-07-2019-12:35:02" "FizzBuzzController()"] "Testing exception."
+["DEBUG" "18-07-2019-12:41:21" "FizzBuzzController()"] "Texto de prueba entrando en el método."
+["INFO" "18-07-2019-12:41:22" "FizzBuzzController()"] "Cargando configuración."
+["DEBUG" "18-07-2019-12:41:22" "FizzBuzzController()"] "1"

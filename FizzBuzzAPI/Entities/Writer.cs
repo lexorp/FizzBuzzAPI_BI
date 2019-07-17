@@ -16,6 +16,7 @@ namespace FizzBuzzAPI.Entities
         {
             try
             {
+                // Carga datos de la salida desde el appsettings.json.
                 LoadPathData();
             }
             catch (Exception ex)
@@ -26,6 +27,7 @@ namespace FizzBuzzAPI.Entities
         }
         public string Path { get; set; }
 
+        // Guarda en un txt la serie rellena y lo guarda por fecha y hora.
         public Task SeriesWriter(List<string> FilledSerie)
         {
             if (FilledSerie == null || FilledSerie.Count == 0)

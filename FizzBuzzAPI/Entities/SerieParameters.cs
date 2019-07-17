@@ -19,6 +19,7 @@ namespace FizzBuzzAPI.Entities
             loadValues(ConfigurationLoader);
         }
 
+        // Llamadas a la clase de carga de condfiguración
         private void loadValues(ConfigurationLoader confLoader)
         {
             MultipleA = confLoader.MultipleAConfigValue;

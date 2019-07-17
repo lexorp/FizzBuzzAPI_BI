@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using FizzBuzzAPI.Tools;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace FizzBuzzAPI.Entities
         {
             try
             {
+                Logger.Log(Logger.LogType.INFO, "FizzBuzzController()", "Cargando configuración.");
                 loader(randomNumber);
             } catch (Exception ex)
             {
@@ -23,6 +25,7 @@ namespace FizzBuzzAPI.Entities
         public int StartValueConfigValue { get; set; }
         public int EndValueConfigValue { get; set; }
 
+        // Cargador de datos desde configuración appsettings.json.
         public void loader(int randomNumber)
         {
             var builder = new ConfigurationBuilder()

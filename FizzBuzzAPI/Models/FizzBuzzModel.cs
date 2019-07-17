@@ -1,4 +1,5 @@
 ﻿using FizzBuzzAPI.Entities;
+using FizzBuzzAPI.Tools;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,11 +10,12 @@ namespace FizzBuzzAPI.Models
     {
         public List<string> ProcessFizzBuzz(int RandomNumber)
         {
-            // Obtiene la lista de la calculadora de FizzBuzz.
             FizzBuzzCalculator fizzBuzzCalculator = new FizzBuzzCalculator(RandomNumber);
             List<string> filledSerie = null;
             try
             {
+                // Obtiene la serie rellena desde la calculadora de FizzBuzz.
+                Logger.Log(Logger.LogType.DEBUG, "FizzBuzzController()", "Número aleatorio " + RandomNumber.ToString());
                 filledSerie = fizzBuzzCalculator.MakeFizzBuzzSerie();
             }catch (Exception ex)
             {

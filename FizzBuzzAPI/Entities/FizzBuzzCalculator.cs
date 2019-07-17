@@ -18,6 +18,7 @@ namespace FizzBuzzAPI.Entities
 
         public SerieParameters SerieParameters { get; set; }
 
+        // Calculadora de la serie FizzBuzz a partir de los valores precargados desde la configuración y entrada.
         public List<string> MakeFizzBuzzSerie()
         {
             List<String> FizzBuzzSerie = new List<string>();
